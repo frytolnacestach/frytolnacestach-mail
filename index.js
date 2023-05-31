@@ -24,12 +24,12 @@ app.use(function(req, res, next) {
 
 
 //CONSTS
-
+const registration = require("./api/registration");
 //CONSTS - END
 
 
 //API
-
+app.use("/api/registration", registration);
 //API - END
 
 
