@@ -1,0 +1,93 @@
+*,
+*:before,
+*:after {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	min-width: 320px;
+	min-height: 100vh;
+	overflow: hidden;
+	overflow-y: visible;
+
+	&.no-scroll {
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+
+	&.no-scroll-bg {
+		overflow-x: hidden;
+		overflow-y: hidden;
+	}
+}
+
+html {
+	&.no-scroll-bg {
+		&:after {
+			background-color: $black-7;
+			content: '';
+			position: fixed;
+			z-index: 49999;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}
+
+body {
+	color: $gray1;
+	font-family: $ff1;
+	margin: 0;
+}
+
+h1,
+.h1 {
+	color: $gray1;
+	font-weight: 600;
+}
+
+h2,
+.h2 {
+	color: $gray1;
+	font-weight: 600;
+}
+
+h3,
+.h3 {
+	color: $gray1;
+	font-weight: 600;
+}
+
+h4,
+.h4 {
+	color: $gray1;
+	font-weight: 600;
+}
+
+h5,
+.h5 {
+	color: $gray1;
+	font-weight: 600;
+}
+
+h6,
+.h6 {
+	color: $gray1;
+	font-weight: 600;
+}
+
+p {
+	width: 100%;
+}
+
+a {
+	@include transition(color, .3s);
+	color: $brand1;
+
+	&:hover {
+		color: $brand2;
+	}
+}

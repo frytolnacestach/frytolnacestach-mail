@@ -1,0 +1,28 @@
+.t-header {
+    @include transition(top, .2s);
+    @include transition(bottom, .2s);
+    width: 100%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: inline-block;
+    top: -100%;
+    bottom: 100%;
+    z-index: 1000;
+
+    @media only screen and (min-width: $lg) {
+        height: auto;
+        top: inherit;
+        bottom: inherit;
+    }
+
+    &.open {
+        top: 0;
+        bottom: 0;
+
+        @media only screen and (min-width: $lg) {
+            top: inherit;
+            bottom: inherit;
+        }
+    }
+}

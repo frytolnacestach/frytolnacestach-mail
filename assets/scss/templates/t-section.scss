@@ -1,0 +1,48 @@
+.t-section {
+    $self: &;
+
+    width: 100%;
+    background-color: $white;
+    position: relative;
+    display: inline-block;
+
+    &__inner {
+        padding: 0 15px;
+        display: block;
+
+        &--w640 {
+            max-width: 640px;
+            margin: 0 auto;
+        }
+    }
+
+    &--gray {
+        background-color: $gray3;
+    }
+
+    &--wysiwyg {
+
+        #{$self}__inner {
+            max-width: 840px;
+            margin:  auto;
+        }
+    }
+
+
+    &--hidden-mobile {
+        display: none;
+    
+        @media only screen and (min-width: $lg) {
+            display: inline-block;
+        }
+    }
+    
+    &--hidden-desktop {
+        display: inline-block;
+    
+        @media only screen and (min-width: $lg) {
+            display: none;
+        }
+    }
+
+}

@@ -1,0 +1,37 @@
+{
+  "name": "frytolnacestach-mail",
+  "version": "1.0.0",
+  "description": "Frytol na cestách MAIL",
+  "main": "index.js",
+  "engines": {
+    "node": "14.x"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frytolnacestach/frytolnacestach-mail"
+  },
+  "keywords": [],
+  "author": "Frytol na cestách",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/frytolnacestach/frytolnacestach-mail/issues"
+  },
+  "homepage": "https://github.com/frytolnacestach/frytolnacestach-mail#readme",
+  "devDependencies": {
+    "sass": "^1.55.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "browser-sync": "^2.27.10",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "gulp": "^4.0.2",
+    "gulp-livereload": "^4.0.2",
+    "gulp-order": "^1.2.0",
+    "gulp-sass": "^5.1.0",
+    "gulp-sourcemaps": "^3.0.0"
+  }
+}

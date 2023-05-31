@@ -1,0 +1,32 @@
+@media print {
+	.hidden-print {
+		display: none !important;
+	}
+}
+
+.hidden-user {
+	position: absolute;
+	overflow: hidden;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	clip: rect(0 0 0 0);
+}
+
+.hidden-mobile {
+	display: none;
+
+	@media only screen and (min-width: $lg) {
+        display: inline-block;
+    }
+}
+
+.hidden-desktop {
+	display: inline-block;
+
+	@media only screen and (min-width: $lg) {
+        display: none;
+    }
+}

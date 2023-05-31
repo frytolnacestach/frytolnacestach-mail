@@ -1,0 +1,61 @@
+.m-logotype {
+    position: absolute;
+    display: flex;
+    z-index: 1001;
+    left: 15px;
+    top: 10px;
+    background-color: white;
+    border-radius: 30px;
+
+    @media only screen and (min-width: $lg) {
+        background-color: transparent;
+        border-radius: inherit;
+    }
+
+    &__image {
+        width: 40px;
+        height: 40px;
+        position: relative;
+    }
+
+    &__image-file {
+        background-image: url('/public/img/_base/logotype.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 40px;
+        height: 40px;
+    }
+
+    &__image-link {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    &__text {
+        height: 40px;
+        position: relative;
+        padding-right: 15px;
+    }
+
+    &__text-main {
+        display: inline-block;
+        font-size: $fs-large-ssss;
+        font-weight: 700;
+        color: $gray7;
+        line-height: 30px;
+        padding: 5px 0 5px 10px;
+    }
+
+    &__text-sub {
+        display: inline-block;
+        color: $brand1;
+        font-size: $fs-normal-sss;
+        font-weight: 300;
+        line-height: 20px;
+        padding: 15px 0 5px 3px;
+    }
+}

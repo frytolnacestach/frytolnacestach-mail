@@ -1,0 +1,50 @@
+//all device
+.text-align-left {
+	text-align: left;
+}
+
+.text-align-center {
+	text-align: center;
+}
+
+.text-align-right {
+	text-align: right;
+}
+
+//mobile device
+.text-align-left-mobile {
+	@media only screen and (max-width: $lgMax) {
+		text-align: left;
+	}
+}
+
+.text-align-center-mobile {
+	@media only screen and (max-width: $lgMax) {
+		text-align: center;
+	}
+}
+
+.text-align-right-mobile {
+	@media only screen and (max-width: $lgMax) {
+		text-align: right;
+	}
+}
+
+//desktop device
+.text-align-left-desktop {
+	@media only screen and (min-width: $lg) {
+		text-align: left;
+	}
+}
+
+.text-align-center-desktop {
+	@media only screen and (min-width: $lg) {
+		text-align: center;
+	}
+}
+
+.text-align-right-desktop {
+	@media only screen and (min-width: $lg) {
+		text-align: right;
+	}
+}

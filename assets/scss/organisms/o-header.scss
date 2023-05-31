@@ -1,0 +1,36 @@
+.o-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: $brand3;
+    padding: 60px 0;
+    height: 100%;
+    position: relative;
+
+    @media only screen and (min-width: $lg) {
+        height: auto;
+        padding: 10px 0;
+        background-color: $white-9;
+    }
+
+    &__outer {
+        width: 100%;
+        max-width: 1200px;  
+        display: flex;
+        align-items: center;  
+        overflow: scroll;
+
+        @media only screen and (min-width: $lg) {
+            overflow: inherit;
+        }
+    }
+
+    &__inner {
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    &__nav {
+        width: 100%;
+    }
+}

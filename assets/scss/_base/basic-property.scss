@@ -1,0 +1,20 @@
+.hidden {
+	display: none;
+}
+
+.visible {
+	display: inline-block;
+}
+
+.active {
+	position: relative;
+}
+
+.inactive {
+	position: relative;
+}
+
+.no-scroll {
+	overflow-x: hidden;
+	overflow-y: hidden;
+}

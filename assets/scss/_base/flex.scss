@@ -1,0 +1,59 @@
+//flex _base
+.flex {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+//size
+.flex-full {
+	width: 100%;
+}
+
+//position
+.flex-start {
+	justify-content: center;
+
+	@media only screen and (min-width: $lg) {
+		justify-content: flex-start;
+	}
+}
+
+.flex-end {
+	justify-content: center;
+
+	@media only screen and (min-width: $lg) {
+		justify-content: flex-end;
+	}
+}
+
+.flex-end-lg {
+	justify-content: center;
+
+	@media only screen and (min-width: $lg) {
+		justify-content: flex-end;
+	}
+}
+
+.flex-center {
+	justify-content: center;
+
+	@media only screen and (min-width: $lg) {
+		justify-content: center;
+	}
+}
+
+.flex-between {
+	justify-content: space-between;
+}
+
+.flex-ai-start {
+	align-items: flex-start;
+}
+
+.flex-ai-center {
+	align-items: center;
+}
+
+.flex-ai-end {
+	align-items: flex-end;
+}

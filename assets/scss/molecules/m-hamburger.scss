@@ -1,0 +1,104 @@
+.m-hamburger {
+	$self: &;
+
+    display: flex;
+    position: absolute;
+    z-index: 1001;
+    cursor: pointer;
+    top: 10px;
+    right: 15px;
+
+	@media only screen and (min-width: $lg) {
+        display: none;
+    }
+
+	//LINES
+	&__lines {
+		display: inline-block;
+		position: relative;
+		height: 40px;
+		width: 30px;
+	}
+
+	&__line {
+		@include transition(all, .3s);
+		position: absolute;
+		left: 0;
+		right: 0;
+		width: 30px;
+		height: 2px;
+		background-color: $white;
+		border-radius: 1.5px;
+		transform-origin: center;
+		transform: rotate(0);
+
+		&--1 {
+			top: 11px;
+		}
+
+		&--2 {
+			top: 19px;
+		}
+
+		&--3 {
+			top: 27px;
+		}
+	}
+
+
+	//TEXTS
+	&__texts {
+		display: block;
+	}
+
+	&__text {
+		padding-right: 10px;
+		color: $white;
+		font-size: $fs-normal;
+		line-height: 40px;
+
+		&--close {
+			display: none;
+		}
+
+		&--open {
+			display: block;
+		}
+	}
+
+
+
+	//ACTION OPEN
+	&.open {
+		#{$self}__text {
+            color: $black;
+
+			&--close {
+				display: block;
+			}
+
+			&--open {
+				display: none;
+			}
+		}
+
+		#{$self}__line {
+            background-color: $black;
+
+			&--1 {
+				top: 19px;
+				transform: rotate(45deg);
+			}
+
+			&--2 {
+				top: 19px;
+				opacity: 0;
+			}
+
+			&--3 {
+				top: 19px;
+				transform: rotate(-45deg);
+			}
+		}
+	}
+}

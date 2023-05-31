@@ -1,0 +1,120 @@
+.a-button-fill {
+    @include transition(background-color, .3s);
+    background-color: $brand1;
+    color: $white;
+    border-radius: 6px;
+    padding: 5px 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: inline-block;
+    font-size: $fs-small-l;
+
+    &:hover {
+        background-color: $brand2;
+        color: $white;
+    }
+
+    &--small {
+        padding: 4px 8px;
+        border-radius: 5px;
+        font-size: $fs-small;
+    }
+
+    &--big {
+        font-size: $fs-normal-sss;
+        padding: 10px 16px;
+        margin: 4px 7px;
+        border-radius: 8px;
+    }
+
+    &--blue {
+        background-color: $brand3;
+        color: $white;
+        text-decoration: none;
+
+        &:hover {
+            background-color: $brand2;
+            color: $white;
+        }
+    }
+
+    &--social-youtube {
+        background-color: $youtube;
+        
+        &:hover {
+            background-color: $youtube-hover;
+        }
+    }
+
+    &--social-instagram {
+        background-color: $instagram;
+        
+        &:hover {
+            background-color: $instagram-hover;
+        }
+    }
+
+    &--social-facebook {
+        background-color: $facebook;
+        
+        &:hover {
+            background-color: $facebook-hover;
+        }
+    }
+
+    &--social-tiktok {
+        background-color: $tiktok;
+        
+        &:hover {
+            background-color: $tiktok-hover;
+        }
+    }
+
+    &--social-twitter {
+        background-color: $twitter;
+        
+        &:hover {
+            background-color: $twitter-hover;
+        }
+    }
+
+    &--social-twitch {
+        background-color: $twitch;
+        
+        &:hover {
+            background-color: $twitch-hover;
+        }
+    }
+
+    &--social-reddit {
+        background-color: $reddit;
+        
+        &:hover {
+            background-color: $reddit-hover;
+        }
+    }
+
+    &--social-pinterest {
+        background-color: $pinterest;
+        
+        &:hover {
+            background-color: $pinterest-hover;
+        }
+    }
+
+    &--social-discord {
+        background-color: $discord;
+        
+        &:hover {
+            background-color: $discord-hover;
+        }
+    }
+
+    &--social-patreon {
+        background-color: $patreon;
+        
+        &:hover {
+            background-color: $patreon-hover;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+.shadow {
+	&:after {
+		@include transition(background-color, .5s);
+		background-color: rgba(0, 0, 0, 0.2);
+	}
+
+	&:hover {
+		&:after {
+			background-color: rgba(0, 0, 0, 0.4);
+		}
+	}
+
+}

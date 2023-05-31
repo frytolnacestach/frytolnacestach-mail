@@ -1,0 +1,53 @@
+//black and white
+$white: #ffffff;
+$black: #000000;
+
+//social
+$youtube: #ff0000;
+$instagram: #dd2a7b;
+$facebook: #3b5998;
+$tiktok: #010101;
+$twitter: #00abf0;
+$twitch: #6441a5;
+$reddit: #ff4500;
+$pinterest: #bd081c;
+$discord: #738adb;
+$patreon: #e64413;
+
+//gray
+$gray1: #444444;
+$gray2: #e4e4e4;
+$gray3: #eeeeee;
+$gray4: #777777;
+$gray5: #cdcdcd;
+$gray6: #f8f8f8;
+$gray7: #333333;
+
+//project
+$brand1: #209277;
+$brand2: #24b694;
+$brand3: #30c4c9;
+$brand4: #3d3c3c;
+$brand5: #383737;
+
+//project - edit
+$brand1-a: #bcded6;
+$brand2-a: #bde9de;
+$brand3-a: #ace7e9;
+
+//opacity
+$white-9: rgba($white, .9);
+$black-3: rgba($black, .3);
+$black-7: rgba($black, .7);
+
+//hover
+$youtube-hover: lighten($youtube, 20%);
+$instagram-hover: lighten($instagram, 20%);
+$facebook-hover: lighten($facebook, 20%);
+$tiktok-hover: lighten($tiktok, 20%);
+$twitter-hover: lighten($twitter, 20%);
+$twitch-hover: lighten($twitch, 20%);
+$reddit-hover: lighten($reddit, 20%);
+$pinterest-hover: lighten($pinterest, 20%);
+$discord-hover: lighten($discord, 20%);
+$patreon-hover: lighten($patreon, 20%);
