@@ -1,31 +1,40 @@
 const nodeMailer = require('nodemailer')
 
-const html = `
-    <h1> Hello mail</h1>
-`;
+const express = require("express");
+const router = express.Router();
 
-async function main() {
-    const transporter = nodeMailer.createTransport({
-        host: 'smtp.forpsi.com',
-        port: 465,
-        secure: true,
-        auth: {
-            user: 'registrace@frytolnacestach.cz',
-            pass: process.env.EMAIL_REG_PASS
-        }
-    });
+router.get("/", async (req, res) => {
 
-    const info = await transporter.sendMail({
-        from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
-        to: 'frytolnacestach@gmail.com',
-        subject: 'Registrace - Frytol na cestách',
-        html: html,
-    })
+    const html = `
+        <h1> Hello mail</h1>
+    `;
 
-    console.log("Message sent: " + info.messageId);
-    console.log(info.accepted);
-    console.log(info.rejected);
-}
+    async function main() {
+        const transporter = nodeMailer.createTransport({
+            host: 'smtp.forpsi.com',
+            port: 465,
+            secure: true,
+            auth: {
+                user: 'registrace@frytolnacestach.cz',
+                pass: process.env.EMAIL_REG_PASS
+            }
+        });
 
-main()
-.catch(e => console.log(e))
+        const info = await transporter.sendMail({
+            from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
+            to: 'frytolnacestach@gmail.com',
+            subject: 'Registrace - Frytol na cestách',
+            html: html,
+        })
+
+        console.log("Message sent: " + info.messageId);
+        console.log(info.accepted);
+        console.log(info.rejected);
+    }
+
+    main()
+    .catch(e => console.log(e))
+
+});
+
+module.exports = router;
