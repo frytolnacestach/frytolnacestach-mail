@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
 
     const html = `
-        <h1> Hello mail - test 9</h1>
+        <h1> Hello mail - test 10</h1>
     `;
 
     async function main() {
@@ -30,6 +30,8 @@ router.get("/", async (req, res) => {
         console.log("Message sent: " + info.messageId);
         console.log(info.accepted);
         console.log(info.rejected);
+
+        res.status(200).send("E-mail byl úspěšně odeslán.");
     }
 
     main()
@@ -63,16 +65,20 @@ router.get("/", async (req, res) => {
             }
         });
 
-        const info = await transporter.sendMail({
-            from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
-            to: 'frytolnacestach@gmail.com',
-            subject: 'Registrace - Frytol na cestách',
-            html: html,
-        })
+        try {
+            const info = await transporter.sendMail({
+                from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
+                to: 'frytolnacestach@gmail.com',
+                subject: 'Registrace - Frytol na cestách',
+                html: html,
+            })
+
+            res.status(200).send("E-mail byl úspěšně odeslán.");
+        } catch (e) {
+            res.status(500).send("Chyba při odesílání e-mailu.");
+        }
 
     }
-
-    res.status(200).send("E-mail byl úspěšně odeslán.");
 
     main().catch(e => console.log(e))
 
