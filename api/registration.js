@@ -26,7 +26,7 @@ router.get("/", (req, res) => {
             const mailOptions = {
                 from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
                 to: 'frytolnacestach@gmail.com',
-                subject: 'Registrace - Frytol na cestách',
+                subject: 'Registrace na cestovatelském portálu Frytol na cestách',
                 html: html,
             };
 
