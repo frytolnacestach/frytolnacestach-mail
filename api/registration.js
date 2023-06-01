@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
 
     const html = `
-        <h1> Hello mail</h1>
+        <h1> Hello mail - test 3</h1>
     `;
 
     async function main() {
@@ -33,7 +33,6 @@ router.get("/", async (req, res) => {
     }
 
     main()
-    .catch(e => console.log(e))
 
 });
 
