@@ -41,6 +41,11 @@ router.get('/docs',function(req,res){
     res.sendFile(path.join(__dirname+'/pages/docs.html'));
 });
 
+//templates for emails
+router.get('/templates/registration.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/registration.html'));
+});
+
 //CSS
 router.get('/public/css/main.css',function(req,res){
     res.sendFile(path.join(__dirname+'/public/css/main.css'));
