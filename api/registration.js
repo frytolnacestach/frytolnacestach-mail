@@ -5,7 +5,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
 
     const html = `
-        <h1> Hello mail - test 13</h1>
+        <h1> Hello mail - test 14</h1>
     `;
 
     function sendEmail(callback) {
@@ -32,6 +32,8 @@ router.get("/", (req, res) => {
                 callback(error);
             } else {
                 console.log("Message sent: " + info.messageId);
+                console.log(info.accepted);
+                console.log(info.rejected);
                 callback(null);
             }
         });
