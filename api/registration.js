@@ -27,6 +27,10 @@ router.get("/", (req, res) => {
                 from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
                 to: 'frytolnacestach@gmail.com',
                 subject: 'Registrace na cestovatelském portálu Frytol na cestách',
+                headers: {
+                    'X-Mailer': 'Frytol na cestách',
+                    'X-Icon': 'https://frytolnacestach-mail.vercel.app/public/img/favicons/android-chrome-192x192.png'
+                },
                 html: html,
             };
 
