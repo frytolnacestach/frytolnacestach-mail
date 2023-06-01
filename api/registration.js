@@ -6,7 +6,7 @@ const router = express.Router();
 router.get("/", async (req, res) => {
 
     const html = `
-        <h1> Hello mail - test 5</h1>
+        <h1> Hello mail - test 6</h1>
     `;
 
     async function main() {
@@ -28,9 +28,9 @@ router.get("/", async (req, res) => {
                 html: html,
             })
 
-            console.log("Message sent: " + info.messageId);
+            res.status(200).send("E-mail byl úspěšně odeslán.");
         } catch (e) {
-            console.log(e);
+            res.status(500).send("Chyba při odesílání e-mailu.");
         }
     }
 
