@@ -5,7 +5,9 @@ const router = express.Router();
 router.get("/", (req, res) => {
 
     const html = `
-        <h1> Hello mail - test 14</h1>
+        <h1>Vaše registrace byla úspěšná</h1>
+        <p>Děkujeme vám za registraci na cestovatelském portálu Frytol na cestách. 
+        Doufáme, že zde najdete všechny potřebné informace pro vaši další cestu a že nás budete doporučovat dál.</p>
     `;
 
     function sendEmail(callback) {
