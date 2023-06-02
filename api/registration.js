@@ -9,6 +9,7 @@ router.get("/", (req, res) => {
     const filePath = path.join(__dirname, '../templates/registration.html');
     
     try {
+        const email = req.body.email;
         const fileData = fs.readFileSync(filePath, 'utf8');
         const html = fileData;
 
@@ -25,7 +26,7 @@ router.get("/", (req, res) => {
 
             const mailOptions = {
                 from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
-                to: 'frytolnacestach@gmail.com',
+                to: email,
                 subject: 'Registrace na cestovatelském portálu Frytol na cestách',
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
