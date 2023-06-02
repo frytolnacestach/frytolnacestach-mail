@@ -9,7 +9,8 @@ router.get("/", (req, res) => {
     const filePath = path.join(__dirname, '../templates/registration.html');
     
     try {
-        const email = req.body.email;
+        //const email = req.body.email;
+        const email = "michal.fryc@seznam.cz"
         const fileData = fs.readFileSync(filePath, 'utf8');
         const html = fileData;
 
