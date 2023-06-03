@@ -11,11 +11,11 @@ router.post("/", (req, res) => {
     
     try {
         const email = req.body.email;
-        const activationCode = req.body.activation_code;
+        const codeActivation = req.body.code_activation;
         const fileData = fs.readFileSync(filePath, 'utf8');
         const compiledTemplate = ejs.compile(fileData);
 
-        const html = compiledTemplate({ email, activationCode });
+        const html = compiledTemplate({ email, codeActivation });
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
