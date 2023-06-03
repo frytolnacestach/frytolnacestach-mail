@@ -5,12 +5,11 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-    
+
     const filePath = path.join(__dirname, '../templates/registration.html');
     
     try {
-        //const email = req.body.email;
-        const email = "michal.fryc@seznam.cz"
+        const email = req.body.email;
         const fileData = fs.readFileSync(filePath, 'utf8');
         const html = fileData;
 
