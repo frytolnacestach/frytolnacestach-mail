@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-    try {
+    /*try {
         // Kód, který chcete vyzkoušet
         console.log("Před vyhozením chyby");
         // Žádná chyba
@@ -16,8 +16,8 @@ router.post("/", (req, res) => {
         console.log("Chyba se stala!");
         console.log("Chybová zpráva:", error.message);
         return res.status(500).send("Server error");
-      }
-/*
+      }*/
+
     const filePath = path.join(__dirname, '../templates/registration.html');
     
     try {
@@ -71,7 +71,7 @@ router.post("/", (req, res) => {
     } catch (error) {
         console.error("Chyba při čtení souboru:", error);
         res.status(500).send("Chyba při načítání e-mailového obsahu.");
-    }*/
+    }
 
 });
 
