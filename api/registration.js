@@ -1,4 +1,5 @@
 const nodeMailer = require('nodemailer');
+const ejs = require('ejs');
 const path = require('path');
 const fs = require('fs');
 const express = require("express");
@@ -10,8 +11,11 @@ router.post("/", (req, res) => {
     
     try {
         const email = req.body.email;
+        const activationCode = req.body.activation_code;
         const fileData = fs.readFileSync(filePath, 'utf8');
-        const html = fileData;
+        const compiledTemplate = ejs.compile(fileData);
+
+        const html = compiledTemplate({ email, activationCode });
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
