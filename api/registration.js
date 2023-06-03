@@ -5,19 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-    /*try {
-        // Kód, který chcete vyzkoušet
-        console.log("Před vyhozením chyby");
-        // Žádná chyba
-        console.log("Tento kód se provede");
-        return res.status(200).send("OK");
-      } catch (error) {
-        // Zachycení chyby
-        console.log("Chyba se stala!");
-        console.log("Chybová zpráva:", error.message);
-        return res.status(500).send("Server error");
-      }*/
-
+    
     const filePath = path.join(__dirname, '../templates/registration.html');
     
     try {
