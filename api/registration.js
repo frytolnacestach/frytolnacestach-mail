@@ -1,66 +1,66 @@
-const nodeMailer = require('nodemailer');
-const path = require('path');
-const fs = require('fs');
+import { createClient } from '@supabase/supabase-js'
+
+const bcrypt = require('bcrypt');
+
+const axios = require('axios');
+
 const express = require("express");
 const router = express.Router();
 
-router.get("/", (req, res) => {
+const supabaseUrl = 'https://qdjxqerpuvcwnbiqojnv.supabase.co'
+const supabaseKey = process.env.SUPABASE_KEY
+const supabase = createClient(supabaseUrl, supabaseKey)
 
-    const filePath = path.join(__dirname, '../templates/registration.html');
-    
-    try {
-        //const email = req.body.email;
-        const email = "michal.fryc@seznam.cz"
-        const fileData = fs.readFileSync(filePath, 'utf8');
-        const html = fileData;
+router.post("/", async (req, res) => {
 
-        function sendEmail(callback) {
-            const transporter = nodeMailer.createTransport({
-                host: 'smtp.forpsi.com',
-                port: 465,
-                secure: true,
-                auth: {
-                    user: 'registrace@frytolnacestach.cz',
-                    pass: process.env.EMAIL_REG_PASS
-                }
-            });
+    // Kontrola existence uživatele
+    const { data: existingUser, error: existingError } = await supabase
+    .from('users_test')
+    .select('id')
+    .eq('email', req.body.email)
+    .limit(1);
 
-            const mailOptions = {
-                from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
-                to: email,
-                subject: 'Registrace na cestovatelském portálu Frytol na cestách',
-                headers: {
-                    'X-Mailer': 'Frytol na cestách',
-                    'X-Icon': 'https://frytolnacestach-mail.vercel.app/public/img/favicons/android-chrome-192x192.png'
-                },
-                html: html,
-            };
-
-            transporter.sendMail(mailOptions, (error, info) => {
-                if (error) {
-                    console.log("Error sending email:", error);
-                    callback(error);
-                } else {
-                    console.log("Message sent: " + info.messageId);
-                    console.log(info.accepted);
-                    console.log(info.rejected);
-                    callback(null);
-                }
-            });
-        }
-
-        sendEmail((error) => {
-            if (error) {
-                res.status(500).send("Nepodařilo se odeslat e-mail.");
-            } else {
-                res.status(200).send("E-mail byl úspěšně odeslán.");
-            }
-        });
-    } catch (error) {
-        console.error("Chyba při čtení souboru:", error);
-        res.status(500).send("Chyba při načítání e-mailového obsahu.");
+    if (existingError) {
+        console.error(existingError);
+        return res.status(500).send("Server error");
     }
 
+    if (existingUser.length > 0) {
+        return res.status(400).send("Uživatel s touto e-mailovou adresou již existuje.");
+    }
+
+
+    //Vytvoření účtu
+    try {
+
+        // Funkce pro generování náhodného kódu
+        async function generateRandomCode(length) {
+            const saltRounds = 10;
+            const code = await bcrypt.genSalt(saltRounds);
+            return code.slice(0, length);
+        }
+        const randomCode = await generateRandomCode(24)
+
+        //hash hesla
+        const hashedPassword = await bcrypt.hash(req.body.password, 10);
+
+        //uložení do databaze
+        const { error } = await supabase
+        .from('users_test')
+        .insert({ 
+			email: req.body.email,
+            password: hashedPassword,
+			nickname: req.body.nickname,
+            activation_code: randomCode
+        })
+
+
+        return res.status(201).send("Učet vytvořen");
+    } catch (error) {
+        console.error(error);
+        return res.status(500).send("Server error");
+    }
+    
 });
 
 module.exports = router;
