@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Aktivace účtu - Frytol na cestách</title>
+        <style>
+            .header {
+                width: 100%;
+                text-align: left;
+                background-color: #ffffff;
+                padding: 10px 15px;
+                border-bottom: 1px solid #246e70;
+            }
+
+            .logo {
+                width: 200px;
+            }
+
+            .content {
+                width: 100%;
+                padding: 20px 15px;
+                background-color: #edf1f4;
+                color: #246e70;
+            }
+
+            .content h1 {
+                margin: 5px 0 10px;
+            }
+
+            .button {
+                background-color: #246e70;
+                color: #ffffff;
+                padding: 10px 20px;
+                font-size: 18px;
+                text-transform: uppercase;
+                text-decoration: none;
+            }
+
+            .footer {
+                width: 100%;
+                text-align: center;
+                background-color: #383737;
+                padding: 8px 15px;
+                width: 100%;
+                color: #ffffff;
+            }
+        </style>
+    </head>
+    <body>
+        <table class="header">
+            <tr>
+                <td>
+                    <img class="logo" src="https://image.frytolnacestach.cz/storage/_email/logotype.png" alt="Logo" />
+                </td>
+            </tr>
+        </table>
+
+        <table class="content">
+            <tr>
+                <td>
+                    <h1>Aktivace Účtu</h1>
+                    <p>Níže zasíláme odkaz k aktivaci účtu. Nejdříve je nutné se z bezpečnostních důvodů přihlasit.</p>
+                    <br>
+                    <a class="button" href="https://frytolnacestach.cz/ucet/aktivace?email=<%= email %>&activation_code=<%= codeActivation %>">AKTIVACE ÚČTU</a>
+                </td>
+            </tr>
+        </table>
+
+        <table class="footer">
+            <tr>
+                <td>
+                    <span>© Všechna práva vyhrazena Frytol na cestách</span>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
