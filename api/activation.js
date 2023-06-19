@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
                 subject: 'Aktivace účtu na cestovatelském portálu Frytol na cestách',
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
-                    'X-Icon': 'https://frytolnacestach-mail.vercel.app/public/img/favicons/android-chrome-192x192.png'
+                    'X-Icon': 'https://mail.frytolnacestach.cz/public/img/favicons/android-chrome-192x192.png'
                 },
                 html: html,
             };
