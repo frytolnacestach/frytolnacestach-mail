@@ -65,8 +65,8 @@ router.get('/public/js/js_o-cookies-dialog.js',function(req,res){
 router.get('/public/img/_base/hero.png',function(req,res){
     res.sendFile(path.join(__dirname+'/public/img/_base/hero.png'));
 });
-router.get('/public/img/_base/logotype.png',function(req,res){
-    res.sendFile(path.join(__dirname+'/public/img/_base/logotype.png'));
+router.get('/public/img/_base/logotype.svg',function(req,res){
+    res.sendFile(path.join(__dirname+'/public/img/_base/logotype.svg'));
 });
 
 //Favicons

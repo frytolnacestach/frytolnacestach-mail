@@ -2,11 +2,15 @@
 	$self: &;
 
     display: flex;
-    position: absolute;
+    position: fixed;
     z-index: 1001;
     cursor: pointer;
     top: 10px;
-    right: 15px;
+    right: 10px;
+
+	@media only screen and (min-width: $ti) {
+		right: 20px;
+	}
 
 	@media only screen and (min-width: $lg) {
         display: none;
@@ -26,42 +30,42 @@
 		left: 0;
 		right: 0;
 		width: 30px;
-		height: 2px;
-		background-color: $white;
+		height: 3px;
+		background-color: $brand1;
 		border-radius: 1.5px;
 		transform-origin: center;
 		transform: rotate(0);
 
-		&--1 {
-			top: 11px;
+		&.-first {
+			top: 10px;
 		}
 
-		&--2 {
+		&.-second {
 			top: 19px;
 		}
 
-		&--3 {
-			top: 27px;
+		&.-third {
+			top: 28px;
 		}
 	}
 
 
 	//TEXTS
 	&__texts {
-		display: block;
+		display: none;
 	}
 
 	&__text {
 		padding-right: 10px;
-		color: $white;
+		color: $black;
 		font-size: $fs-normal;
 		line-height: 40px;
 
-		&--close {
+		&.-close {
 			display: none;
 		}
 
-		&--open {
+		&.-open {
 			display: block;
 		}
 	}
@@ -73,11 +77,11 @@
 		#{$self}__text {
             color: $black;
 
-			&--close {
+			&.-close {
 				display: block;
 			}
 
-			&--open {
+			&.-open {
 				display: none;
 			}
 		}
@@ -85,20 +89,21 @@
 		#{$self}__line {
             background-color: $black;
 
-			&--1 {
+			&.-first {
 				top: 19px;
 				transform: rotate(45deg);
 			}
 
-			&--2 {
+			&.-second {
 				top: 19px;
 				opacity: 0;
 			}
 
-			&--3 {
+			&.-third {
 				top: 19px;
 				transform: rotate(-45deg);
 			}
 		}
 	}
 }
+

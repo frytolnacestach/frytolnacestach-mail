@@ -2,23 +2,21 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: $brand3;
-    padding: 60px 0;
+    background-color: $white-7;
     height: 100%;
+    min-height: 60px;
     position: relative;
 
     @media only screen and (min-width: $lg) {
         height: auto;
         padding: 10px 0;
-        background-color: $white-9;
     }
 
     &__outer {
         width: 100%;
-        max-width: 1200px;  
+        max-width: 100%;  
         display: flex;
         align-items: center;  
-        overflow: scroll;
 
         @media only screen and (min-width: $lg) {
             overflow: inherit;
@@ -27,7 +25,12 @@
 
     &__inner {
         width: 100%;
-        padding: 0 15px;
+        padding: 0 10px;
+        display: flex;
+
+        @media only screen and (min-width: $ti) {
+            padding: 0 20px;
+        }
     }
 
     &__nav {

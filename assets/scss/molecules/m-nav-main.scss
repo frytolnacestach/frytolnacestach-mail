@@ -1,11 +1,34 @@
 .m-nav-main {
     $self: &;
 
-    padding: 0;
+    @include transition(right, .2s);
+    position: absolute;
+    padding-left: 0;
+    padding-right: 0;
     width: 100%;
+    right: -100%;
+    top: 0;
+    bottom: 0;
+    z-index: 1000;
+    height: 100vh;
+    background-color: $brand3;
+
+    @media only screen and (min-width: $lg) {
+        position: relative;
+        height: auto;
+        right: inherit;
+        background-color: inherit;
+    }
 
     &__outer {
         width: 100%;
+        overflow: scroll;
+        height: 100vh;
+
+        @media only screen and (min-width: $lg) {
+            overflow: inherit;
+            height: inherit;
+        }
     }
 
     &__inner {
@@ -17,45 +40,52 @@
         display: flex;
         flex-wrap: wrap;
         list-style: none;
-        margin: 0;
-        padding: 0;
-        justify-content: center;
+        margin: 0 -5px 0 0;
+        justify-content: flex-end;
         position: relative;
+        padding: 60px 15px;
 
         @media only screen and (min-width: $lg) {
+            padding: 0;
             flex-wrap: nowrap;
-            justify-content: flex-end;
         }
     }
 
     &__item {
         display: flex;
-        justify-content: center;
+        justify-content: flex-end;
         width: 100%;
-        height: 40px;
+        height: auto;
 
         @media only screen and (min-width: $lg) {
             width: auto;
+            height: 40px;
         }
 
-        &--special {
-
+        &.-special {
             @media only screen and (min-width: $lg) {
-                position: absolute;
-                top: 0;
-                right: -40px;
+                margin-right: -5px;
             }
 
             #{$self}__link {
-                background-color: $brand3;
-                color: $white;
-                border-radius: 5px;
-                padding: 3px 12px;
-                line-height: 30px;
+                @include transition(background-color, .3s);
+                margin: 2px 5px;
+                
+                @media only screen and (min-width: $lg) {
+                    background-color: $brand1;
+                    color: $white;
+                    border-radius: 5px;
+                    padding: 3px 12px;
+                    line-height: 30px;
+                    margin: 2px 5px;
+                    text-transform: none;
+                }
 
                 &:hover {
-                    background-color: $brand2;
-                    color: $white;
+                    @media only screen and (min-width: $lg) {
+                        background-color: $brand2;
+                        color: $white;
+                    }
                 }
             }
         }
@@ -65,20 +95,54 @@
         padding: 5px;
         margin: 2px 5px;
         line-height: 26px;
-        font-size: $fs-normal-sss;
-        color: $gray1;
+        font-size: $fs-normal-ss;
+        color: $gray7;
         text-decoration: none;
         text-transform: uppercase;
-        font-weight: 600;
+        font-weight: 500;
 
         &:hover {
             color: $brand1;
         }
 
-        &--active {
-            &:hover {
-          
+        &.-active {
+            color: $gray7;
+            border-bottom: 2px solid black;
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+
+            @media only screen and (min-width: $lg) {
+                color: $brand1;
+                border-bottom: 0;
+                margin-bottom: 5px;
+                padding-bottom: 5px;
             }
+
+            &:hover {
+                color: $gray7;
+
+                @media only screen and (min-width: $lg) {
+                    color: $brand1;
+                }
+            }
+        }
+    }
+
+    &__link-subfix {
+        color: $gray7;
+        font-size: $fs-small-s;
+        line-height: 14px;
+
+        @media only screen and (min-width: $lg) {
+            color: $brand3;
+        }
+    }
+
+    &.open {
+        right: 0;
+
+        @media only screen and (min-width: $lg) {
+            right: inherit;
         }
     }
 }

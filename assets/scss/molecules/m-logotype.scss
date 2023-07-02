@@ -1,30 +1,26 @@
 .m-logotype {
-    position: absolute;
-    display: flex;
-    z-index: 1001;
-    left: 15px;
-    top: 10px;
-    background-color: white;
-    border-radius: 30px;
+    $self: &;
 
-    @media only screen and (min-width: $lg) {
-        background-color: transparent;
-        border-radius: inherit;
-    }
+    position: relative;
+    display: flex;
+    z-index: 999;
+    background-color: white;
 
     &__image {
-        width: 40px;
+        width: 200px;
         height: 40px;
+        padding: 5.35px 0;
         position: relative;
     }
 
     &__image-file {
-        background-image: url('/public/img/_base/logotype.png');
+        position: relative;
+        background-image: url('/public/img/_base/logotype.svg');
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
-        width: 40px;
-        height: 40px;
+        width: 200px;
+        height: 29.3px;
     }
 
     &__image-link {
@@ -35,27 +31,34 @@
         left: 0;
     }
 
-    &__text {
-        height: 40px;
-        position: relative;
-        padding-right: 15px;
-    }
-
-    &__text-main {
+    &__server {
         display: inline-block;
-        font-size: $fs-large-ssss;
+        width: 100%;
+        font-size: $fs-normal-l;
+        height: $fs-normal-l;
         font-weight: 700;
         color: $gray7;
-        line-height: 30px;
-        padding: 5px 0 5px 10px;
+        line-height: 1;
+        padding: 0;
     }
 
-    &__text-sub {
-        display: inline-block;
-        color: $brand1;
-        font-size: $fs-normal-sss;
-        font-weight: 300;
-        line-height: 20px;
-        padding: 15px 0 5px 3px;
+    &.-server {
+        flex-wrap: wrap;
+
+        #{$self}__image {
+            width: 110px;
+            height: 19px;
+            padding: 3px 0 0;
+            position: relative;
+        }
+    
+        #{$self}__image-file {
+            background-image: url('/public/img/_base/logotype.svg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            width: 110px;
+            height: 16px;
+        }
     }
 }

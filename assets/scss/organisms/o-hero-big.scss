@@ -1,6 +1,6 @@
 .o-hero-big {
     background-image: url('/public/img/_base/hero.png');
-    background-size: cover;
+    bbackground-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-color: #444;
@@ -10,7 +10,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 40px;
 
     &__outer {
         width: 100%;
@@ -18,10 +17,6 @@
         margin: 0 auto; 
         height: auto;
         padding: 50px 0;
-
-        @media only screen and (min-width: $lg) {
-            padding: 60px 0 0 0;
-        }
     }
 
     &__inner {
