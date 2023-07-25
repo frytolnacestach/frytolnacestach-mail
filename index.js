@@ -46,8 +46,14 @@ router.get('/docs',function(req,res){
 });
 
 //templates for emails
+router.get('/templates/aktivace.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/aktivace.html'));
+});
 router.get('/templates/registration.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/registration.html'));
+});
+router.get('/templates/test.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/test.html'));
 });
 
 //CSS
