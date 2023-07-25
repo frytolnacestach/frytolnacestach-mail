@@ -66,6 +66,9 @@ router.get('/templates/block-base/header.html',function(req,res){
 router.get('/templates/block-content/registration-new.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/block-content/registration-new.html'));
 });
+router.get('/templates/block-content/user-activation.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/block-content/user-activation.html'));
+});
 
 //CSS
 router.get('/public/css/main.css',function(req,res){
