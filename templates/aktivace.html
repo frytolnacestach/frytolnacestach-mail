@@ -4,31 +4,27 @@
         <title>Aktivace účtu - Frytol na cestách</title>
     </head>
     <body>
-        <table class="header">
-            <tr>
-                <td>
-                    <img class="logo" src="https://image.frytolnacestach.cz/storage/_email/logotype.png" alt="Logo" />
-                </td>
-            </tr>
-        </table>
+        <div id="header"></div>
 
-        <table class="content">
-            <tr>
-                <td>
-                    <h1>Aktivace účtu</h1>
-                    <p>Níže zasíláme odkaz k aktivaci účtu. Nejdříve je nutné se z bezpečnostních důvodů přihlasit.</p>
-                    <br>
-                    <a class="button" href="https://frytolnacestach.cz/ucet/aktivace?email=<%= email %>&activation_code=<%= codeActivation %>">AKTIVACE ÚČTU</a>
-                </td>
-            </tr>
-        </table>
+        <div id="user-activation"></div>
 
-        <table class="footer">
-            <tr>
-                <td>
-                    <span>© Všechna práva vyhrazena Frytol na cestách</span>
-                </td>
-            </tr>
-        </table>
+        <div id="footer"></div>
+
+        <script>
+            // Funkce pro načtení obsahu ze souboru a vložení do HTML
+            function loadHTML(url, targetId) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById(targetId).innerHTML = data;
+                    })
+                    .catch(error => console.error('Chyba při načítání souboru: ', error));
+            }
+    
+            // Načtení obsahu pro jednotlivé části a vložení do stránky
+            loadHTML('block-base/header.html', 'header');
+            loadHTML('block-content/user-activation.html', 'user-activation');
+            loadHTML('block-base/footer.html', 'footer');
+        </script>
     </body>
 </html>
