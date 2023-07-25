@@ -26,12 +26,14 @@ app.use(function(req, res, next) {
 //CONSTS
 const registration = require("./api/registration");
 const activation = require("./api/activation");
+const test = require("./api/test");
 //CONSTS - END
 
 
 //API
 app.use("/api/registration", registration);
 app.use("/api/activation", activation);
+app.use("/api/test", test);
 //API - END
 
 

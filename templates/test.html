@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registrace - Frytol na cestách</title>
+    </head>
+    <body>
+        <div id="header"></div>
+
+        <div id="registration-new"></div>
+
+        <div id="footer"></div>
+
+        <script>
+            // Funkce pro načtení obsahu ze souboru a vložení do HTML
+            function loadHTML(url, targetId) {
+                fetch(url)
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById(targetId).innerHTML = data;
+                    })
+                    .catch(error => console.error('Chyba při načítání souboru: ', error));
+            }
+    
+            // Načtení obsahu pro jednotlivé části a vložení do stránky
+            loadHTML('block-base/header.html', 'header');
+            loadHTML('block-content/registration-new.html', 'registration-new');
+            loadHTML('block-base/footer.html', 'footer');
+        </script>
+    </body>
+</html>
