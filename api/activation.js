@@ -15,7 +15,19 @@ router.post("/", (req, res) => {
         const fileData = fs.readFileSync(filePath, 'utf8');
         const compiledTemplate = ejs.compile(fileData);
 
-        const html = compiledTemplate({ email, codeActivation });
+        // Načtěte obsah jednotlivých částí e-mailu
+        const headerContent = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
+        const userActivationContent = fs.readFileSync(path.join(__dirname, '../templates/block-content/user-activation.html'), 'utf8');
+        const footerContent = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8');
+
+        // Spojujeme obsah jednotlivých částí do kompletního e-mailu
+        const completeHtml = compiledTemplate({
+            email,
+            codeActivation,
+            headerContent,
+            userActivationContent,
+            footerContent
+        });
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
