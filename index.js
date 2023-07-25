@@ -56,6 +56,17 @@ router.get('/templates/test.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/test.html'));
 });
 
+//templates-block for emails
+router.get('/templates/block-base/footer.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/block-base/footer.html'));
+});
+router.get('/templates/block-base/header.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/block-base/header.html'));
+});
+router.get('/templates/block-content/registration-new.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/block-content/registration-new.html'));
+});
+
 //CSS
 router.get('/public/css/main.css',function(req,res){
     res.sendFile(path.join(__dirname+'/public/css/main.css'));
