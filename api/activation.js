@@ -48,7 +48,7 @@ router.post("/", (req, res) => {
                     'X-Mailer': 'Frytol na cestách',
                     'X-Icon': 'https://mail.frytolnacestach.cz/public/img/favicons/android-chrome-192x192.png'
                 },
-                html: html,
+                html: completeHtml,
             };
 
             transporter.sendMail(mailOptions, (error, info) => {
