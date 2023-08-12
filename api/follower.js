@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
 
-    const filePath = path.join(__dirname, '../templates/aktivace.html');
+    const filePath = path.join(__dirname, '../templates/sledovani.html');
     
     try {
         const email = req.body.email;
