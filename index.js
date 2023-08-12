@@ -26,6 +26,7 @@ app.use(function(req, res, next) {
 //CONSTS
 const registration = require("./api/registration");
 const activation = require("./api/activation");
+const follower = require("./api/follower");
 const test = require("./api/test");
 //CONSTS - END
 
@@ -33,6 +34,7 @@ const test = require("./api/test");
 //API
 app.use("/api/registration", registration);
 app.use("/api/activation", activation);
+app.use("/api/follower", follower);
 app.use("/api/test", test);
 //API - END
 
@@ -52,6 +54,9 @@ router.get('/templates/aktivace.html',function(req,res){
 router.get('/templates/registration.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/registration.html'));
 });
+router.get('/templates/sledovani.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/sledovani.html'));
+});
 router.get('/templates/test.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/test.html'));
 });
@@ -68,6 +73,9 @@ router.get('/templates/block-content/registration-new.html',function(req,res){
 });
 router.get('/templates/block-content/user-activation.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/block-content/user-activation.html'));
+});
+router.get('/templates/block-content/follower.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/block-content/follower.html'));
 });
 
 //CSS

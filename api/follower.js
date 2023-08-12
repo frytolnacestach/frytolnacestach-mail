@@ -7,25 +7,27 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
 
-    const filePath = path.join(__dirname, '../templates/test.html');
+    const filePath = path.join(__dirname, '../templates/aktivace.html');
     
     try {
-        const email = "admin@frytolnacestach.cz";
-        const codeActivation = "codeActivation";
+        const email = req.body.email;
+        const userSlug = req.body.user_slug;
+        const userNickname = req.body.user_nickname;
         const fileData = fs.readFileSync(filePath, 'utf8');
         const compiledTemplate = ejs.compile(fileData);
 
         // Načtěte obsah jednotlivých částí e-mailu
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
-        const blockContentUserActivation = fs.readFileSync(path.join(__dirname, '../templates/block-content/user-activation.html'), 'utf8');
+        const blockContentFollower = fs.readFileSync(path.join(__dirname, '../templates/block-content/follower.html'), 'utf8');
         const blockBaseFooter = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8');
 
         // Spojujeme obsah jednotlivých částí do kompletního e-mailu
         const completeHtml = compiledTemplate({
             email,
-            codeActivation,
+            userSlug,
+            userNickname,
             blockBaseHeader,
-            blockContentUserActivation,
+            blockContentFollower,
             blockBaseFooter
         });
 
@@ -35,15 +37,15 @@ router.post("/", (req, res) => {
                 port: 465,
                 secure: true,
                 auth: {
-                    user: 'registrace@frytolnacestach.cz',
+                    user: 'notification@frytolnacestach.cz',
                     pass: process.env.EMAIL_REG_PASS
                 }
             });
 
             const mailOptions = {
-                from: 'Test - Frytol na cestách <registrace@frytolnacestach.cz>',
+                from: 'Notifikace - Frytol na cestách <notification@frytolnacestach.cz>',
                 to: email,
-                subject: 'Test emailu na cestovatelském portálu Frytol na cestách',
+                subject: 'Někdo tě začal sledovat na cestovatelském portálu Frytol na cestách',
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
                     'X-Icon': 'https://mail.frytolnacestach.cz/public/img/favicons/android-chrome-192x192.png'
