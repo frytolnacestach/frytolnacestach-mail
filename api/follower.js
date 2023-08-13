@@ -13,14 +13,22 @@ router.post("/", (req, res) => {
         const email = req.body.email;
         const userSlug = req.body.user_slug;
         const userNickname = req.body.user_nickname;
-        /*const userSlug = "frytol-na-cestach-test";
-        const userNickname = "Frytol na cestách";*/
         const fileData = fs.readFileSync(filePath, 'utf8');
         const compiledTemplate = ejs.compile(fileData);
 
         // Načtěte obsah jednotlivých částí e-mailu
+        // header
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
-        const blockContentFollower = fs.readFileSync(path.join(__dirname, '../templates/block-content/follower.html'), 'utf8');
+        //const blockContentFollower = fs.readFileSync(path.join(__dirname, '../templates/block-content/follower.html'), 'utf8');
+        // content
+        const blockContentFollowerPath = path.join(__dirname, '../templates/block-content/follower.html');
+        const blockContentFollowerData = fs.readFileSync(blockContentFollowerPath, 'utf8');
+        const compiledBlockContentFollower = ejs.compile(blockContentFollowerData);
+        const renderedBlockContentFollower = compiledBlockContentFollower({
+            userSlug,
+            userNickname
+        });
+        // footer
         const blockBaseFooter = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8');
 
         // Spojujeme obsah jednotlivých částí do kompletního e-mailu
@@ -29,7 +37,7 @@ router.post("/", (req, res) => {
             userSlug,
             userNickname,
             blockBaseHeader,
-            blockContentFollower,
+            blockContentFollower: renderedBlockContentFollower,
             blockBaseFooter
         });
 
