@@ -11,8 +11,10 @@ router.post("/", (req, res) => {
     
     try {
         const email = req.body.email;
-        const userSlug = req.body.user_slug;
-        const userNickname = req.body.user_nickname;
+        /*const userSlug = req.body.user_slug;
+        const userNickname = req.body.user_nickname;*/
+        const userSlug = "frytol-na-cestach-test";
+        const userNickname = "Frytol na cestách";
         const fileData = fs.readFileSync(filePath, 'utf8');
         const compiledTemplate = ejs.compile(fileData);
 
