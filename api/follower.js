@@ -38,7 +38,7 @@ router.post("/", (req, res) => {
                 secure: true,
                 auth: {
                     user: 'notification@frytolnacestach.cz',
-                    pass: process.env.EMAIL_REG_PASS
+                    pass: process.env.EMAIL_NOT_PASS
                 }
             });
 
