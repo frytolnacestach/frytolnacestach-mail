@@ -16,8 +16,16 @@ router.post("/", (req, res) => {
         const compiledTemplate = ejs.compile(fileData);
 
         // Načtěte obsah jednotlivých částí e-mailu
+        // header
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
-        const blockContentRegistrationNew = fs.readFileSync(path.join(__dirname, '../templates/block-content/registation-new.html'), 'utf8');
+        // content
+        const blockContentRegistrationNewPath = path.join(__dirname, '../templates/block-content/registation-new.html');
+        const blockContentRegistrationNewData = fs.readFileSync(blockContentRegistrationNewPath, 'utf8');
+        const compiledBlockContentRegistrationNew = ejs.compile(blockContentRegistrationNewData);
+        const renderedBlockContentRegistrationNew = compiledBlockContentRegistrationNew({
+            codeActivation
+        });
+        // footer
         const blockBaseFooter = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8');
 
         // Spojujeme obsah jednotlivých částí do kompletního e-mailu
@@ -25,7 +33,7 @@ router.post("/", (req, res) => {
             email,
             codeActivation,
             blockBaseHeader,
-            blockContentRegistrationNew,
+            blockContentRegistrationNew: renderedBlockContentRegistrationNew,
             blockBaseFooter
         });
 

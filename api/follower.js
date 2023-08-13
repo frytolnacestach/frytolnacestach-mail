@@ -19,7 +19,6 @@ router.post("/", (req, res) => {
         // Načtěte obsah jednotlivých částí e-mailu
         // header
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
-        //const blockContentFollower = fs.readFileSync(path.join(__dirname, '../templates/block-content/follower.html'), 'utf8');
         // content
         const blockContentFollowerPath = path.join(__dirname, '../templates/block-content/follower.html');
         const blockContentFollowerData = fs.readFileSync(blockContentFollowerPath, 'utf8');
