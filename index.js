@@ -27,6 +27,7 @@ app.use(function(req, res, next) {
 const registration = require("./api/registration");
 const activation = require("./api/activation");
 const follower = require("./api/follower");
+const passwordLost = require("./api/password-lost");
 const test = require("./api/test");
 //CONSTS - END
 
@@ -35,6 +36,7 @@ const test = require("./api/test");
 app.use("/api/registration", registration);
 app.use("/api/activation", activation);
 app.use("/api/follower", follower);
+app.use("/api/password-lost", passwordLost);
 app.use("/api/test", test);
 //API - END
 
@@ -50,6 +52,9 @@ router.get('/docs',function(req,res){
 //templates for emails
 router.get('/templates/aktivace.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/aktivace.html'));
+});
+router.get('/templates/obnoveni-hesla.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/obnoveni-hesla.html'));
 });
 router.get('/templates/registration.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/registration.html'));
@@ -67,6 +72,9 @@ router.get('/templates/block-base/footer.html',function(req,res){
 });
 router.get('/templates/block-base/header.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/block-base/header.html'));
+});
+router.get('/templates/block-content/password-lost.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/block-content/password-lost.html'));
 });
 router.get('/templates/block-content/registration-new.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/block-content/registration-new.html'));
