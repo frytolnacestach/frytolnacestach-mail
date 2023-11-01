@@ -19,7 +19,7 @@ router.post("/", (req, res) => {
         // header
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
         // content
-        const blockContentUserActivationPath = path.join(__dirname, '../templates/block-content/UserActivation.html');
+        const blockContentUserActivationPath = path.join(__dirname, '../templates/block-content/user-activation.html');
         const blockContentUserActivationData = fs.readFileSync(blockContentUserActivationPath, 'utf8');
         const compiledBlockContentUserActivation = ejs.compile(blockContentUserActivationData);
         const renderedBlockContentUserActivation = compiledBlockContentUserActivation({
