@@ -23,6 +23,7 @@ router.post("/", (req, res) => {
         const blockContentUserActivationData = fs.readFileSync(blockContentUserActivationPath, 'utf8');
         const compiledBlockContentUserActivation = ejs.compile(blockContentUserActivationData);
         const renderedBlockContentUserActivation = compiledBlockContentUserActivation({
+            email,
             codeActivation
         });
         // footer

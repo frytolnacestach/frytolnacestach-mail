@@ -23,6 +23,7 @@ router.post("/", (req, res) => {
         const blockContentPasswordLostData = fs.readFileSync(blockContentPasswordLostPath, 'utf8');
         const compiledBlockContentPasswordLost = ejs.compile(blockContentPasswordLostData);
         const renderedBlockContentPasswordLost = compiledBlockContentPasswordLost({
+            email,
             codePassword
         });
         // footer
