@@ -79,8 +79,8 @@ router.get('/templates/block-content/password-lost.html',function(req,res){
 router.get('/templates/block-content/registration-new.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/block-content/registration-new.html'));
 });
-router.get('/templates/block-content/user-activation.html',function(req,res){
-    res.sendFile(path.join(__dirname+'/templates/block-content/user-activation.html'));
+router.get('/templates/block-content/userActivation.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/block-content/userActivation.html'));
 });
 router.get('/templates/block-content/follower.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/block-content/follower.html'));
