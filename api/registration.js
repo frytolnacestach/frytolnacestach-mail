@@ -35,7 +35,8 @@ router.post("/", (req, res) => {
             codePassword,
             blockBaseHeader,
             blockContentPasswordLost: renderedBlockContentPasswordLost,
-            
+            blockBaseFooter
+        });
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
