@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
 
-    const filePath = path.join(__dirname, '../templates/registrace.html');
+    const filePath = path.join(__dirname, '../templates/obnoveni-hesla.html');
     
     try {
         const email = req.body.email;
@@ -19,12 +19,12 @@ router.post("/", (req, res) => {
         // header
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
         // content
-        const blockContentRegistrationNewPath = path.join(__dirname, '../templates/block-content/password-lost.html');
-        const blockContentRegistrationNewData = fs.readFileSync(blockContentRegistrationNewPath, 'utf8');
-        const compiledBlockContentRegistrationNew = ejs.compile(blockContentRegistrationNewData);
-        const renderedBlockContentRegistrationNew = compiledBlockContentRegistrationNew({
+        const blockContentPasswordLostPath = path.join(__dirname, '../templates/block-content/password-lost.html');
+        const blockContentPasswordLostData = fs.readFileSync(blockContentPasswordLostPath, 'utf8');
+        const compiledBlockContentPasswordLost = ejs.compile(blockContentPasswordLostData);
+        const renderedBlockContentPasswordLost = compiledBlockContentPasswordLost({
             email,
-            codePassword,
+            codePassword
         });
         // footer
         const blockBaseFooter = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8');
@@ -34,9 +34,8 @@ router.post("/", (req, res) => {
             email,
             codePassword,
             blockBaseHeader,
-            blockContentPasswordLost: renderedBlockContentRegistrationNew,
-            blockBaseFooter
-        });
+            blockContentPasswordLost: renderedBlockContentPasswordLost,
+            
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
