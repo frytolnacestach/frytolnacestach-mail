@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
 
-    const filePath = path.join(__dirname, '../templates/obnoveni-hesla.html');
+    const filePath = path.join(__dirname, '../templates/registrace.html');
     
     try {
         const email = req.body.email;
@@ -19,12 +19,12 @@ router.post("/", (req, res) => {
         // header
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
         // content
-        const blockContentPasswordLostPath = path.join(__dirname, '../templates/block-content/password-lost.html');
-        const blockContentPasswordLostData = fs.readFileSync(blockContentPasswordLostPath, 'utf8');
-        const compiledBlockContentPasswordLost = ejs.compile(blockContentPasswordLostData);
-        const renderedBlockContentPasswordLost = compiledBlockContentPasswordLost({
+        const blockContentRegistrationNewPath = path.join(__dirname, '../templates/block-content/password-lost.html');
+        const blockContentRegistrationNewData = fs.readFileSync(blockContentRegistrationNewPath, 'utf8');
+        const compiledBlockContentRegistrationNew = ejs.compile(blockContentRegistrationNewData);
+        const renderedBlockContentRegistrationNew = compiledBlockContentRegistrationNew({
             email,
-            codePassword
+            codePassword,
         });
         // footer
         const blockBaseFooter = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8');
@@ -34,7 +34,7 @@ router.post("/", (req, res) => {
             email,
             codePassword,
             blockBaseHeader,
-            blockContentPasswordLost: renderedBlockContentPasswordLost,
+            blockContentPasswordLost: renderedBlockContentRegistrationNew,
             blockBaseFooter
         });
 
@@ -50,9 +50,9 @@ router.post("/", (req, res) => {
             });
 
             const mailOptions = {
-                from: 'Obnova hesla - Frytol na cestách <registrace@frytolnacestach.cz>',
+                from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
                 to: email,
-                subject: 'Obnova hesla na cestovatelském portálu Frytol na cestách',
+                subject: 'Registrace na cestovatelském portálu Frytol na cestách',
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
                     'X-Icon': 'https://mail.frytolnacestach.cz/public/img/favicons/android-chrome-192x192.png'
