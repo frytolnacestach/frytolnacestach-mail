@@ -56,8 +56,8 @@ router.get('/templates/aktivace.html',function(req,res){
 router.get('/templates/obnoveni-hesla.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/obnoveni-hesla.html'));
 });
-router.get('/templates/registration.html',function(req,res){
-    res.sendFile(path.join(__dirname+'/templates/registration.html'));
+router.get('/templates/registrace.html',function(req,res){
+    res.sendFile(path.join(__dirname+'/templates/registrace.html'));
 });
 router.get('/templates/sledovani.html',function(req,res){
     res.sendFile(path.join(__dirname+'/templates/sledovani.html'));
