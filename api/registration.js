@@ -7,11 +7,11 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
 
-    const filePath = path.join(__dirname, '../templates/obnoveni-hesla.html');
+    const filePath = path.join(__dirname, '../templates/registrace.html');
     
     try {
         const email = req.body.email;
-        const codePassword = req.body.code_activation;
+        const codeActivation = req.body.code_activation;
         const fileData = fs.readFileSync(filePath, 'utf8');
         const compiledTemplate = ejs.compile(fileData);
 
@@ -19,12 +19,12 @@ router.post("/", (req, res) => {
         // header
         const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8');
         // content
-        const blockContentPasswordLostPath = path.join(__dirname, '../templates/block-content/password-lost.html');
-        const blockContentPasswordLostData = fs.readFileSync(blockContentPasswordLostPath, 'utf8');
-        const compiledBlockContentPasswordLost = ejs.compile(blockContentPasswordLostData);
-        const renderedBlockContentPasswordLost = compiledBlockContentPasswordLost({
+        const blockContentRegistrationNewPath = path.join(__dirname, '../templates/block-content/registration-new.html');
+        const blockContentRegistrationNewData = fs.readFileSync(blockContentRegistrationNewPath, 'utf8');
+        const compiledBlockContentRegistrationNew = ejs.compile(blockContentRegistrationNewData);
+        const renderedBlockContentRegistrationNew = compiledBlockContentRegistrationNew({
             email,
-            codePassword
+            codeActivation
         });
         // footer
         const blockBaseFooter = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8');
@@ -32,9 +32,9 @@ router.post("/", (req, res) => {
         // Spojujeme obsah jednotlivých částí do kompletního e-mailu
         const completeHtml = compiledTemplate({
             email,
-            codePassword,
+            codeActivation,
             blockBaseHeader,
-            blockContentPasswordLost: renderedBlockContentPasswordLost,
+            blockContentRegistrationNew: renderedBlockContentRegistrationNew,
             blockBaseFooter
         });
 
