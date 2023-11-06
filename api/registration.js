@@ -7,11 +7,11 @@ const router = express.Router();
 
 router.post("/", (req, res) => {
 
-    const filePath = path.join(__dirname, '../templates/registration.html');
+    const filePath = path.join(__dirname, '../templates/obnoveni-hesla.html');
     
     try {
         const email = req.body.email;
-        const codePassword = req.body.code_activation;
+        const codePassword = req.body.code_password;
         const fileData = fs.readFileSync(filePath, 'utf8');
         const compiledTemplate = ejs.compile(fileData);
 
@@ -50,9 +50,9 @@ router.post("/", (req, res) => {
             });
 
             const mailOptions = {
-                from: 'Registrace - Frytol na cestách <registrace@frytolnacestach.cz>',
+                from: 'Obnova hesla - Frytol na cestách <registrace@frytolnacestach.cz>',
                 to: email,
-                subject: 'Registrace na cestovatelském portálu Frytol na cestách',
+                subject: 'Obnova hesla na cestovatelském portálu Frytol na cestách',
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
                     'X-Icon': 'https://mail.frytolnacestach.cz/public/img/favicons/android-chrome-192x192.png'
