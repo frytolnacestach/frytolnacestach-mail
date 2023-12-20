@@ -56,7 +56,7 @@ router.post("/", (req, res) => {
                 subject: 'Někdo tě začal sledovat na cestovatelském portálu Frytol na cestách',
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
-                    'X-Icon': 'https://mail.frytolnacestach.cz/public/img/favicons/android-chrome-192x192.png'
+                    'X-Image-Url': 'https://mail.frytolnacestach.cz/public/img/email/profile/frytolnacestach.png'
                 },
                 html: completeHtml,
             }
