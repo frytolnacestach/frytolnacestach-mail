@@ -41,3 +41,6 @@ jspm_packages
 
 # .env
 .env.local
+
+# macOS
+.DS_Store

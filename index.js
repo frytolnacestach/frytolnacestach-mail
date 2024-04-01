@@ -95,9 +95,6 @@ router.get('/public/css/main.css',function(req,res){
 router.get('/public/js/js_m-hamburger.js',function(req,res){
     res.sendFile(path.join(__dirname+'/public/js/js_m-hamburger.js'));
 });
-router.get('/public/js/js_o-cookies-dialog.js',function(req,res){
-    res.sendFile(path.join(__dirname+'/public/js/js_o-cookies-dialog.js'));
-});
 
 //IMG
 router.get('/public/img/_base/hero.png',function(req,res){
