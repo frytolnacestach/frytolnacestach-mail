@@ -45,9 +45,6 @@ app.use("/api/test", test);
 router.get('/',function(req,res){
     res.sendFile(path.join(__dirname+'/pages/index.html'));
 });
-router.get('/docs',function(req,res){
-    res.sendFile(path.join(__dirname+'/pages/docs.html'));
-});
 
 //templates for emails
 router.get('/templates/aktivace.html',function(req,res){
