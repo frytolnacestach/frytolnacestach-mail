@@ -15,5 +15,7 @@
     &__text {
         color: $white;
         font-size: $fs-small-sss;
+        line-height: 16px;
+        display: block;
     }
 }
