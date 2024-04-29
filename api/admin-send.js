@@ -9,7 +9,6 @@ router.post("/", (req, res) => {
         const to = req.body.to
         const subject = req.body.subject
         const message = req.body.message
-        const email = "admin@frytolnacestach.cz"
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
@@ -24,8 +23,8 @@ router.post("/", (req, res) => {
 
             const mailOptions = {
                 from: 'Test - Frytol na cestách <registrace@frytolnacestach.cz>',
-                to: email,
-                subject: 'Test emailu na cestovatelském portálu Frytol na cestách',
+                to: to,
+                subject: subject,
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
                     'X-Image-Url': 'https://mail.frytolnacestach.cz/public/img/email/profile/frytolnacestach.png'
