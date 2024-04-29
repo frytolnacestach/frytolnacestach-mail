@@ -15,9 +15,9 @@ router.post("/", (req, res) => {
                 host: 'smtp.forpsi.com',
                 port: 465,
                 secure: true,
-                auth: {
-                    user: 'registrace@frytolnacestach.cz',
-                    pass: process.env.EMAIL_REG_PASS
+                ignoreTLS: true,
+                tls: {
+                    rejectUnauthorized: false
                 }
             })
 
