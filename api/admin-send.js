@@ -1,41 +1,11 @@
 const nodeMailer = require('nodemailer')
-const ejs = require('ejs')
 const path = require('path')
-const fs = require('fs')
 const express = require("express")
 const router = express.Router()
 
 router.post("/", (req, res) => {
-    const filePath = path.join(__dirname, '../templates/test.html')
-    
     try {
         const email = "admin@frytolnacestach.cz"
-        const codeActivation = "codeActivation"
-        const fileData = fs.readFileSync(filePath, 'utf8')
-        const compiledTemplate = ejs.compile(fileData)
-
-        // Načtěte obsah jednotlivých částí e-mailu
-        // header
-        const blockBaseHeader = fs.readFileSync(path.join(__dirname, '../templates/block-base/header.html'), 'utf8')
-        // content
-        const blockContentUserActivationPath = path.join(__dirname, '../templates/block-content/user-activation.html')
-        const blockContentUserActivationData = fs.readFileSync(blockContentUserActivationPath, 'utf8')
-        const compiledBlockContentUserActivation = ejs.compile(blockContentUserActivationData)
-        const renderedBlockContentUserActivation = compiledBlockContentUserActivation({
-            email,
-            codeActivation
-        })
-        // footer
-        const blockBaseFooter = fs.readFileSync(path.join(__dirname, '../templates/block-base/footer.html'), 'utf8')
-
-        // Spojujeme obsah jednotlivých částí do kompletního e-mailu
-        const completeHtml = compiledTemplate({
-            email,
-            codeActivation,
-            blockBaseHeader,
-            blockContentUserActivation: renderedBlockContentUserActivation,
-            blockBaseFooter
-        })
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
@@ -56,7 +26,7 @@ router.post("/", (req, res) => {
                     'X-Mailer': 'Frytol na cestách',
                     'X-Image-Url': 'https://mail.frytolnacestach.cz/public/img/email/profile/frytolnacestach.png'
                 },
-                html: completeHtml,
+                html: "test",
             }
 
             transporter.sendMail(mailOptions, (error, info) => {
