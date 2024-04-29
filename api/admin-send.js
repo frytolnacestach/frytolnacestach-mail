@@ -5,7 +5,10 @@ const router = express.Router()
 
 router.post("/", (req, res) => {
     try {
-        const email = "admin@frytolnacestach.cz"
+        const from = req.body.from
+        const to = req.body.to
+        const subject = req.body.subject
+        const message = req.body.message
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
@@ -20,13 +23,13 @@ router.post("/", (req, res) => {
 
             const mailOptions = {
                 from: 'Test - Frytol na cestách <registrace@frytolnacestach.cz>',
-                to: email,
-                subject: 'Test emailu na cestovatelském portálu Frytol na cestách',
+                to: from,
+                subject: subject,
                 headers: {
                     'X-Mailer': 'Frytol na cestách',
                     'X-Image-Url': 'https://mail.frytolnacestach.cz/public/img/email/profile/frytolnacestach.png'
                 },
-                html: "test",
+                html: message,
             }
 
             transporter.sendMail(mailOptions, (error, info) => {
