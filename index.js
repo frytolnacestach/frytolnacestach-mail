@@ -24,6 +24,7 @@ app.use(function(req, res, next) {
 
 
 //CONSTS
+const adminSend = require("./api/admin-send");
 const registration = require("./api/registration");
 const activation = require("./api/activation");
 const follower = require("./api/follower");
@@ -33,6 +34,7 @@ const test = require("./api/test");
 
 
 //API
+app.use("/api/admin-send", adminSend);
 app.use("/api/registration", registration);
 app.use("/api/activation", activation);
 app.use("/api/follower", follower);
