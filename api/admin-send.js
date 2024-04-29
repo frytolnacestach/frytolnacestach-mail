@@ -12,12 +12,12 @@ router.post("/", (req, res) => {
 
         function sendEmail(callback) {
             const transporter = nodeMailer.createTransport({
-                host: 'smtp.forpsi.com',
+                host: 'smtp.seznam.cz',
                 port: 465,
                 secure: true,
-                ignoreTLS: true,
-                tls: {
-                    rejectUnauthorized: false
+                auth: {
+                    user: 'frytolnacestach@seznam.cz',
+                    pass: process.env.EMAIL_REG_PASS_SEZNAM
                 }
             })
 
