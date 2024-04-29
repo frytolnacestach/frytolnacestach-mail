@@ -15,9 +15,9 @@ router.post("/", (req, res) => {
                 host: 'smtp.seznam.cz',
                 port: 465,
                 secure: true,
-                auth: {
-                    user: 'frytolnacestach@seznam.cz',
-                    pass: process.env.EMAIL_REG_PASS_SEZNAM
+                ignoreTLS: true,
+                tls: {
+                    rejectUnauthorized: false
                 }
             })
 
