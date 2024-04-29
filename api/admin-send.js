@@ -22,7 +22,7 @@ router.post("/", (req, res) => {
             })
 
             const mailOptions = {
-                from: 'Test - Frytol na cestách <registrace@frytolnacestach.cz>',
+                from: from,
                 to: to,
                 subject: subject,
                 headers: {
