@@ -5,4 +5,4 @@ _____________________________________________________________________
 &nbsp;
 
 ## DOCS
-<big>**[GET](docs/get.md)**</big>
+<big>**[EMAIL TYPES](docs/email-type.md)**</big>
