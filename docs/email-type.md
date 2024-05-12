@@ -1,2 +1,2 @@
-# GET
+# Typy emailu
 
