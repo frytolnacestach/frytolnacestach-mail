@@ -1,5 +1,7 @@
 # mail.frytolnacestch.cz
 
+Slouží ke zpracování dotazu pro odeslání emailu z api.frytolnacestach.cz. Je nutné aby to běželo na node serveru. 
+
 _____________________________________________________________________
 
 &nbsp;
